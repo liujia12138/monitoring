@@ -6,13 +6,15 @@ import Axios from 'axios';
 import i18n from '@/i18n';
 import store from '@/store';
 import './permission'
+import '@/assets/icons';
+
 
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/scss/index.scss';
 import mock from '@/mock'
 
 // if(process.env.NODE_ENV === 'dev'){
-  mock();
+mock();
 // }
 
 Vue.use(ElementUI, {
