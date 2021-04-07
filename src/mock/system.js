@@ -15,7 +15,6 @@ module.exports = [
             children: [{
               id: '11',
               name: 'menuManage',
-              name: '菜单管理',
               icon: '',
               path: '/menuManage',
             }]

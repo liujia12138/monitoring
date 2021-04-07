@@ -7,11 +7,13 @@ const Mock = require('mockjs')
 // 
 const admin = require('./admin')
 const user = require('./user')
+const system = require('./system')
 
 
 const mocks = [
   ...admin,
-  ...user
+  ...user,
+  ...system
 ]
 
 const reqWrap = (response) => {

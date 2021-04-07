@@ -6,3 +6,11 @@ const apis = {
 
 export default apis;
 
+export function getMenuList(params){
+  return request({
+    url: apis.menuList,
+    method: 'get',
+    params: params
+  })
+}
+
