@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-card>
     <div>
       <el-button type="primary" size="small" @click="handleAddUser"
         >{{ $t('add') }}用户</el-button
@@ -29,7 +29,7 @@
       :page-size="size"
       @current-change="handleCurrentPageChange"
     />
-  </div>
+  </el-card>
 </template>
 
 <script>

@@ -15,6 +15,9 @@ export const constantRoutes = [{
       path: 'admin/userManage',
       component: (resolve) => require(['@/views/admin/userManage'], resolve)
     }, {
+      path: 'system/menuManage',
+      component: (resolve) => require(['@/views/system/menuManage'], resolve)
+    }, {
       path: '404',
       component: (resolve) => require(['@/views/404'], resolve)
     }, ]

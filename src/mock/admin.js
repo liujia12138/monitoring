@@ -18,8 +18,8 @@ Random.extend({
     }]
     return this.pick(roles).name
   },
-  'userState': function(){
-    const status = ['正常','禁用']
+  'userState': function () {
+    const status = ['正常', '禁用']
     return this.pick(status)
   }
 })
@@ -31,51 +31,81 @@ module.exports = [
     response: () => {
       return {
         code: 200,
-        data: [{
-          id: '1',
-          name: '系统设置',
-          icon: '',
-          hidden: false,
-          path: '/system',
-          children: [{
-            id: '11',
-            name: '菜单管理',
+        data: {
+          list: [{
+            id: '1',
+            path: '/system',
+            name: 'system',
+            meta: {
+              title: '系统设置',
+              isTab: false
+            },
             icon: '',
-            path: '/system/menuManage',
-          }]
-        }, {
-          id: '2',
-          name: '权限管理',
-          icon: '',
-          path: '/admin',
-          hidden: false,
-          children: [{
-            id: '21',
-            name: '角色管理',
-            icon: '',
-            path: '/admin/roles',
             hidden: false,
+            children: [{
+              id: '11',
+              name: 'menuManage',
+              meta: {
+                title: '菜单管理',
+                isTab: true
+              },
+              icon: '',
+              path: '/menuManage',
+            }]
           }, {
-            id: '22',
-            name: '用户管理',
+            id: '2',
+            name: 'admin',
+            meta: {
+              title: '权限管理',
+              isTab: true,
+            },
             icon: '',
-            path: '/userManage',
+            path: '/admin',
             hidden: false,
-          }]
-        }, {
-          id: '3',
-          name: '应用管理',
-          icon: '',
-          path: '/application',
-          hidden: false,
-          children: [{
-            id: '31',
-            name: '应用列表',
+            children: [{
+              id: '21',
+              name: 'roles',
+              meta: {
+                title: '角色管理',
+                isTab: true,
+              },
+              icon: '',
+              path: '/admin/roles',
+              hidden: false,
+            }, {
+              id: '22',
+              name: 'userManage',
+              meta: {
+                title: '用户管理',
+                isTab: true,
+              },
+              icon: '',
+              path: '/userManage',
+              hidden: false,
+            }]
+          }, {
+            id: '3',
+            name: 'application',
+            meta: {
+              title: '应用管理',
+              isTab: false,
+            },
             icon: '',
-            path: '/list',
+            path: '/application',
             hidden: false,
+            children: [{
+              id: '31',
+              name: 'list',
+              meta: {
+                title: '应用列表',
+                isTab: true,
+              },
+              icon: '',
+              path: '/list',
+              hidden: false,
+            }]
           }]
-        }]
+        }
       }
     }
   },
@@ -84,7 +114,9 @@ module.exports = [
     url: '/admin/user/list',
     type: 'get',
     response: (config) => {
-      const { page = 1, size = 10 } = config.query;
+      const {
+        page = 1, size = 10
+      } = config.query;
       let i = 0,
         list = []
       while (i < size) {

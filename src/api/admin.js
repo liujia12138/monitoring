@@ -2,7 +2,8 @@ import request from '../utils/request'
 
 const apis = {
   userListAll: '/admin/user/list',
-  addUser: '/admin/user/add'
+  addUser: '/admin/user/add',
+  menuListAll: '/admin/menu/menuAll'
 }
 
 export default apis;

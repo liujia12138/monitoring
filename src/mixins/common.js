@@ -28,6 +28,7 @@ export default {
       }).then(({
         data: res
       }) => {
+        console.log(res)
         this.dataList = res.data.list;
         this.total = res.data.total;
         this.dataListLoading = false;

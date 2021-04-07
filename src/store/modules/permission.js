@@ -15,7 +15,7 @@ export default {
   mutations: {
     SET_ROUTES: (state, routes) => {
       state.addRoutes = routes;
-      // state.routes =routes
+      state.routes = routes
       router.addRoutes(routes)
     }
   },
@@ -27,12 +27,8 @@ export default {
       return new Promise((resolve) => {
         getMenuAll().then(res => {
           console.log(constantRoutes)
-          const accessedRoutes = filterAsyncRouter(res.data)
-          accessedRoutes.push({
-            path: '*',
-            redirect: '/404',
-            hidden: true
-          })
+          const accessedRoutes = filterAsyncRouter(res.data.list)
+        
           commit('SET_ROUTES', accessedRoutes)
           resolve(accessedRoutes)
         })

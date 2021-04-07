@@ -5,7 +5,7 @@ import store from '@/store'
 // 权限：
 // 登录
 // token获取menu列表，渲染侧边栏，
-// router-beforeEach
+// router.beforeEach
 
 router.beforeEach(async (to, from, next) => {
   const hasToken = cookie.get('user-token');
@@ -19,15 +19,13 @@ router.beforeEach(async (to, from, next) => {
       if (hasRoles) {
         next()
       } else {
-        const {
-          roles
-        } = await store.dispatch('user/getUserInfo')
-        console.log(roles)
+        await store.dispatch('user/getUserInfo')
         // 获取动态路由
-
         await store.dispatch('permission/generateRoutes')
         next()
       }
     }
+  } else {
+    next()
   }
 })
