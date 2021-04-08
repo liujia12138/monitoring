@@ -40,7 +40,7 @@ module.exports = [
               title: '系统设置',
               isTab: false
             },
-            icon: '',
+            icon: 'icon-bianji',
             hidden: false,
             children: [{
               id: '11',
@@ -59,7 +59,7 @@ module.exports = [
               title: '权限管理',
               isTab: true,
             },
-            icon: '',
+            icon: 'icon-icon_zhanghao',
             path: '/admin',
             hidden: false,
             children: [{
@@ -90,7 +90,7 @@ module.exports = [
               title: '应用管理',
               isTab: false,
             },
-            icon: '',
+            icon: 'icon-icon_yingyongguanli',
             path: '/application',
             hidden: false,
             children: [{
